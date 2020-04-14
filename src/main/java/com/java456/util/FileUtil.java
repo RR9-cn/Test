@@ -39,6 +39,14 @@ public class FileUtil {
         }
     }
     
-    
+    public static String replace(String fileName) {
+    	int pos=-1;
+    	int winPost = fileName.lastIndexOf('/');
+    	int unixPost=fileName.lastIndexOf('\\');
+    		pos=(winPost>=unixPost?winPost:unixPost);
+    	if(pos!=-1)
+    		return fileName.substring(pos+1);
+    	return fileName;
+    }
 	
 }

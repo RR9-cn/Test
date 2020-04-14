@@ -173,8 +173,8 @@ public class Admin_Client_Controller {
             String filePath= "/static/upload_file/excel/";
             //把文件名子换成（时间搓.png）
             // String imageName="houtai_logo."+file.getOriginalFilename().split("\\.")[1];
-            String fileName=DateUtil.formatDate(new Date(), "yyyyMMdd-HHmmssSSS")+"_"+file.getOriginalFilename();
-            
+            String replaceFile=FileUtil.replace(file.getOriginalFilename());
+            String fileName=DateUtil.formatDate(new Date(), "yyyyMMdd-HHmmssSSS")+"_"+replaceFile;
             FileUtil.makeDirs(webPath+filePath);
             //保存服务器
             file.transferTo(new File(webPath+filePath+fileName));
